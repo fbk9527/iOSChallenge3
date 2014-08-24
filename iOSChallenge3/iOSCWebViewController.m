@@ -114,11 +114,17 @@ static NSString * kSearchStorboardId = @"HistoryAndSearchViewController";
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     PRINTFUNCTION
     [self refreshNavigationButtons];
+    
+    // Update address bar while loading
+    [self updateSearchAddressBarWithNewLocation:webView];
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     PRINTFUNCTION
     [self refreshNavigationButtons];
+    
+    // Update address bar to reflect new location
+    [self updateSearchAddressBarWithNewLocation:webView];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
@@ -209,5 +215,11 @@ static NSString * kSearchStorboardId = @"HistoryAndSearchViewController";
 -(void)refreshNavigationButtons{
     self.backButton.enabled = self.webivew.canGoBack;
     self.forwardButton.enabled = self.webivew.canGoForward;
+}
+
+-(void)updateSearchAddressBarWithNewLocation:(UIWebView*)webview {
+    NSURL* url = [[webview request]URL];
+    NSLog(@"Base %@",[url description]);
+    self.searchbar.text = [url description];
 }
 @end
