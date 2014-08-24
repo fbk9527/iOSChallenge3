@@ -9,6 +9,12 @@
 
 #import "iOSCWebViewController.h"
 
+#define kTOOLBAR_FADEAT 10.0f
+#define kTOOLBAR_FADETM 0.25f
+#define kOPAQUE 1.0f
+#define kTRANSPARENT 0.0f
+#define kEMPTYSTRING @""
+
 
 @interface iOSCWebViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
@@ -46,10 +52,7 @@ static NSString * kSearchStorboardId = @"HistoryAndSearchViewController";
     // Scrollview delegate
     self.webivew.scrollView.delegate = self;
     
-    // Correct border
-    self.searchbar.barTintColor = [UIColor whiteColor];
-    
-    // Toolbar
+    // Initially show toolbar
     self.showingToolbar = YES;
     
 }
@@ -59,6 +62,7 @@ static NSString * kSearchStorboardId = @"HistoryAndSearchViewController";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - SearchBar Delegate
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
@@ -71,7 +75,7 @@ static NSString * kSearchStorboardId = @"HistoryAndSearchViewController";
         // Correct frame
         CGRect offsetFrame = self.backingView.frame;
         CGRect controllerFrame = controller.view.frame;
-        CGRect newFrame = CGRectMake(0.0f, offsetFrame.size.height, controllerFrame.size.width, controllerFrame.size.height);
+        CGRect newFrame = CGRectMake(0.0f, offsetFrame.size.height, controllerFrame.size.width, controllerFrame.size.height - offsetFrame.size.height);
         
         self.searchTableViewController = controller;
         self.searchTableViewController.view.frame = newFrame;
@@ -167,27 +171,30 @@ static NSString * kSearchStorboardId = @"HistoryAndSearchViewController";
 }
 
 
+
+
+
 #pragma mark - Scrollview Delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     PRINTFUNCTION
     CGPoint location = scrollView.contentOffset;
     PRINTSCROLLING(location)
     
-    if (self.showingToolbar && location.y > 10.0f) {
+    // Fade out
+    if (self.showingToolbar && location.y > kTOOLBAR_FADEAT) {
         __weak UIToolbar* weak_toolbar = self.navigationBar;
         _showingToolbar = NO;
-        [UIView animateWithDuration:0.25f animations:^{
-            weak_toolbar.alpha = 0.0f;
-        }completion:^(BOOL finish){
-            
+        [UIView animateWithDuration:kTOOLBAR_FADETM animations:^{
+            weak_toolbar.alpha = kTRANSPARENT;
         }];
-    } else if(!self.showingToolbar && location.y <= 10.0f){
+    }
+    
+    // Fade back in
+    else if(!self.showingToolbar && location.y <= kTOOLBAR_FADEAT){
         __weak UIToolbar* weak_toolbar = self.navigationBar;
         _showingToolbar = YES;
-        [UIView animateWithDuration:0.25f animations:^{
-            weak_toolbar.alpha = 1.0f;
-        }completion:^(BOOL finished){
-            
+        [UIView animateWithDuration:kTOOLBAR_FADETM animations:^{
+            weak_toolbar.alpha = kOPAQUE;
         }];
     }
     
@@ -208,7 +215,7 @@ static NSString * kSearchStorboardId = @"HistoryAndSearchViewController";
     [self.searchDisplayController setActive:NO];
     
     if (clearText) {
-        self.searchbar.text = @"";
+        self.searchbar.text = kEMPTYSTRING;
     }
 }
 
@@ -218,8 +225,6 @@ static NSString * kSearchStorboardId = @"HistoryAndSearchViewController";
 }
 
 -(void)updateSearchAddressBarWithNewLocation:(UIWebView*)webview {
-    NSURL* url = [[webview request]URL];
-    NSLog(@"Base %@",[url description]);
-    self.searchbar.text = [url description];
+    self.searchbar.text = [[[webview request]URL]description];
 }
 @end
