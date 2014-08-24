@@ -18,12 +18,9 @@
 		B630F3DD19A8651700F0EDB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B630F3C219A8651700F0EDB7 /* Foundation.framework */; };
 		B630F3DE19A8651700F0EDB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B630F3C619A8651700F0EDB7 /* UIKit.framework */; };
 		B630F3E619A8651800F0EDB7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B630F3E419A8651800F0EDB7 /* InfoPlist.strings */; };
-		B630F3E819A8651800F0EDB7 /* iOSChallenge3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B630F3E719A8651800F0EDB7 /* iOSChallenge3Tests.m */; };
 		B630F3F219A8653100F0EDB7 /* mainstoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B630F3F119A8653100F0EDB7 /* mainstoryboard.storyboard */; };
 		B630F40219A8693500F0EDB7 /* iOSCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B630F40119A8693500F0EDB7 /* iOSCWebViewController.m */; };
 		B630F40819A87BB400F0EDB7 /* iOSCSearchHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B630F40719A87BB400F0EDB7 /* iOSCSearchHistoryTableViewController.m */; };
-		B630F40C19A8E55900F0EDB7 /* iOSCWebHistoricalEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = B630F40B19A8E55900F0EDB7 /* iOSCWebHistoricalEntry.m */; };
-		B630F41019A8EA1B00F0EDB7 /* iOSCWebHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = B630F40F19A8EA1B00F0EDB7 /* iOSCWebHistoryController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,16 +49,11 @@
 		B630F3DB19A8651700F0EDB7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B630F3E319A8651800F0EDB7 /* iOSChallenge3Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOSChallenge3Tests-Info.plist"; sourceTree = "<group>"; };
 		B630F3E519A8651800F0EDB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B630F3E719A8651800F0EDB7 /* iOSChallenge3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSChallenge3Tests.m; sourceTree = "<group>"; };
 		B630F3F119A8653100F0EDB7 /* mainstoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = mainstoryboard.storyboard; path = ../mainstoryboard.storyboard; sourceTree = "<group>"; };
 		B630F40019A8693500F0EDB7 /* iOSCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSCWebViewController.h; sourceTree = "<group>"; };
 		B630F40119A8693500F0EDB7 /* iOSCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSCWebViewController.m; sourceTree = "<group>"; };
 		B630F40619A87BB400F0EDB7 /* iOSCSearchHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSCSearchHistoryTableViewController.h; sourceTree = "<group>"; };
 		B630F40719A87BB400F0EDB7 /* iOSCSearchHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSCSearchHistoryTableViewController.m; sourceTree = "<group>"; };
-		B630F40A19A8E55900F0EDB7 /* iOSCWebHistoricalEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSCWebHistoricalEntry.h; sourceTree = "<group>"; };
-		B630F40B19A8E55900F0EDB7 /* iOSCWebHistoricalEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSCWebHistoricalEntry.m; sourceTree = "<group>"; };
-		B630F40E19A8EA1B00F0EDB7 /* iOSCWebHistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSCWebHistoryController.h; sourceTree = "<group>"; };
-		B630F40F19A8EA1B00F0EDB7 /* iOSCWebHistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSCWebHistoryController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +113,6 @@
 		B630F3C819A8651700F0EDB7 /* iOSChallenge3 */ = {
 			isa = PBXGroup;
 			children = (
-				B630F40919A8E4FF00F0EDB7 /* Model */,
 				B630F3F719A866AE00F0EDB7 /* Controller */,
 				B630F3D119A8651700F0EDB7 /* iOSCAppDelegate.h */,
 				B630F3D219A8651700F0EDB7 /* iOSCAppDelegate.m */,
@@ -146,7 +137,6 @@
 		B630F3E119A8651700F0EDB7 /* iOSChallenge3Tests */ = {
 			isa = PBXGroup;
 			children = (
-				B630F3E719A8651800F0EDB7 /* iOSChallenge3Tests.m */,
 				B630F3E219A8651700F0EDB7 /* Supporting Files */,
 			);
 			path = iOSChallenge3Tests;
@@ -164,7 +154,6 @@
 		B630F3F719A866AE00F0EDB7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B630F40D19A8E7A700F0EDB7 /* Modelcontroller */,
 				B630F3FF19A8690D00F0EDB7 /* Viewcontroller */,
 			);
 			name = Controller;
@@ -179,24 +168,6 @@
 				B630F40719A87BB400F0EDB7 /* iOSCSearchHistoryTableViewController.m */,
 			);
 			name = Viewcontroller;
-			sourceTree = "<group>";
-		};
-		B630F40919A8E4FF00F0EDB7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B630F40A19A8E55900F0EDB7 /* iOSCWebHistoricalEntry.h */,
-				B630F40B19A8E55900F0EDB7 /* iOSCWebHistoricalEntry.m */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		B630F40D19A8E7A700F0EDB7 /* Modelcontroller */ = {
-			isa = PBXGroup;
-			children = (
-				B630F40E19A8EA1B00F0EDB7 /* iOSCWebHistoryController.h */,
-				B630F40F19A8EA1B00F0EDB7 /* iOSCWebHistoryController.m */,
-			);
-			name = Modelcontroller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,8 +270,6 @@
 				B630F3D319A8651700F0EDB7 /* iOSCAppDelegate.m in Sources */,
 				B630F3CF19A8651700F0EDB7 /* main.m in Sources */,
 				B630F40819A87BB400F0EDB7 /* iOSCSearchHistoryTableViewController.m in Sources */,
-				B630F41019A8EA1B00F0EDB7 /* iOSCWebHistoryController.m in Sources */,
-				B630F40C19A8E55900F0EDB7 /* iOSCWebHistoricalEntry.m in Sources */,
 				B630F40219A8693500F0EDB7 /* iOSCWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,7 +278,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B630F3E819A8651800F0EDB7 /* iOSChallenge3Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +466,7 @@
 				B630F3ED19A8651800F0EDB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B630F3EE19A8651800F0EDB7 /* Build configuration list for PBXNativeTarget "iOSChallenge3Tests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +475,7 @@
 				B630F3F019A8651800F0EDB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
