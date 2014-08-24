@@ -77,6 +77,7 @@ static NSString * kSearchStorboardId = @"HistoryAndSearchViewController";
         self.searchTableViewController.view.frame = newFrame;
         self.searchTableViewController.delegate = self;
     }
+    [self.searchTableViewController.view setHidden:NO];
     [self.view addSubview:self.searchTableViewController.view];
     [self.searchbar setShowsCancelButton:YES];
 }
@@ -125,6 +126,8 @@ static NSString * kSearchStorboardId = @"HistoryAndSearchViewController";
     
     if (error) {
         // Display Error
+        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Error" message:error.description delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil];
+        [alert show];
     }
     [self refreshNavigationButtons];
 }
