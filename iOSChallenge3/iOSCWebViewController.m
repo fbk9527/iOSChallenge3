@@ -99,6 +99,7 @@ static NSString * kSearchStorboardId = @"HistoryAndSearchViewController";
     PRINTFUNCTION
     NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:[searchBar text]]];
     [self.webivew loadRequest:request];
+    [self.searchTableViewController addSearchStringToHistory:searchBar.text];
     [self DismissSearchViewControllerOptionallyClearText:NO];
 }
 
@@ -112,6 +113,7 @@ static NSString * kSearchStorboardId = @"HistoryAndSearchViewController";
 
 #pragma mark - UIWebViewDelegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+    PRINTFUNCTION
     return YES;
 }
 
@@ -151,6 +153,8 @@ static NSString * kSearchStorboardId = @"HistoryAndSearchViewController";
                              didSelectString:(NSString *)string
 {
     PRINTFUNCTION
+    [self.webivew loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:string]]];
+    [self DismissSearchViewControllerOptionallyClearText:NO];
     
 }
 
@@ -203,6 +207,11 @@ static NSString * kSearchStorboardId = @"HistoryAndSearchViewController";
 - (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView{
     PRINTFUNCTION
 }
+
+
+
+
+
 
 #pragma mark - Helper Functions
 -(void)DismissSearchViewControllerOptionallyClearText:(BOOL)clearText {

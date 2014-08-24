@@ -15,4 +15,8 @@
 
 @interface iOSCSearchHistoryTableViewController : UITableViewController
 @property (nonatomic, weak) id<iOSSearchHistoryDelegate> delegate;
+@property (nonatomic, strong) NSMutableArray* history;
+
+- (void)addSearchStringToHistory:(NSString*)searched;
+- (void)filterSearchResultsBy:(NSString*)typedString;
 @end
